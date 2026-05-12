@@ -286,15 +286,20 @@
       });
       const contactId = contactRes.contact?.id || contactRes.id;
 
-      // 2) Book appointment (no appointmentStatus = lets GHL use default, not auto-confirmed)
+      // 2) Book appointment
+      // appointmentStatus: 'confirmed' ensures the booking is visible in
+      // the GHL dashboard calendar view (default 'new' may be hidden).
+      // selectedTimezone tells GHL which timezone the slot was picked in.
       await ghlFetch('/calendars/events/appointments', {
         calendarId: GHL.calendarId,
         locationId: GHL.locationId,
         contactId,
         assignedUserId: GHL.userId,
-        startTime: isoInTz(start, BUSINESS_TZ),
-        endTime:   isoInTz(end,   BUSINESS_TZ),
-        title:     `${name} — Diamond Glass Glow`,
+        startTime:      isoInTz(start, BUSINESS_TZ),
+        endTime:        isoInTz(end,   BUSINESS_TZ),
+        title:          `${name} — Diamond Glass Glow`,
+        appointmentStatus: 'confirmed',
+        selectedTimezone: BUSINESS_TZ,
       });
 
       track("Lead", { content_name: SERVICE_NAME });

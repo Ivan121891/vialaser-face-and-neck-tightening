@@ -8,7 +8,7 @@
   // GHL credentials
   const GHL = {
     locationId: 'CI1hQcs0bykFTQ717jDd',
-    calendarId: 'WL87IJ4ONQbEgM1nTkUX',
+    calendarId: 'ODR0VwK2STWKImiRsW9w',
     userId:     '2tQreqXcDpaAiSBqlK7T',
     apiKey:     'pit-458d1995-c591-48c7-8307-6343e6b7e86d',
     apiBase:    'https://services.leadconnectorhq.com',
@@ -281,8 +281,8 @@
         lastName: lastName || '-',
         email,
         phone,
-        source: 'Diamond Glass Glow LP',
-        tags: ['Diamond Glass Glow'],
+        source: 'LED Body Therapy LP',
+        tags: ['LED Body Therapy'],
       });
       const contactId = contactRes.contact?.id || contactRes.id;
 
@@ -297,7 +297,7 @@
         assignedUserId: GHL.userId,
         startTime:      isoInTz(start, BUSINESS_TZ),
         endTime:        isoInTz(end,   BUSINESS_TZ),
-        title:          `${name} — Diamond Glass Glow`,
+        title:          `${name} — LED Body Therapy`,
         appointmentStatus: 'confirmed',
         selectedTimezone: BUSINESS_TZ,
       });

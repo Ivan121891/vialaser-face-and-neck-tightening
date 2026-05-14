@@ -295,7 +295,6 @@
         startTime:      isoInTz(start, BUSINESS_TZ),
         endTime:        isoInTz(end,   BUSINESS_TZ),
         title:          `${name} — Face and neck tightening`,
-        appointmentStatus: 'confirmed',
         selectedTimezone: BUSINESS_TZ,
       });
 

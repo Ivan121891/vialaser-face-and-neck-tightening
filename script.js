@@ -2,15 +2,15 @@
   "use strict";
 
   // ------- Configuration -------
-  const SERVICE_NAME = "LED Red light Skin Tightening";
+  const SERVICE_NAME = "Face & Neck Tightening";
   const SERVICE_DURATION_MIN = 60;
 
   // GHL credentials
   const GHL = {
-    locationId: 'CI1hQcs0bykFTQ717jDd',
-    calendarId: 'ODR0VwK2STWKImiRsW9w',
+    locationId: 'Vyf83R6wePOPyk0gF6Hq',
+    calendarId: 'A5sbhDNQlKuh87wtmBGE',
     userId:     '2tQreqXcDpaAiSBqlK7T',
-    apiKey:     'pit-458d1995-c591-48c7-8307-6343e6b7e86d',
+    apiKey:     'pit-d34aad9b-c517-4b22-b6b0-ca2663f3d33e',
     apiBase:    'https://services.leadconnectorhq.com',
     version:    '2021-07-28',
   };
@@ -281,13 +281,12 @@
         lastName: lastName || '-',
         email,
         phone,
-        source: 'LED Red light Skin Tightening LP',
-        tags: ['LED Red light Skin Tightening'],
+        source: 'Face & Neck Tightening LP',
+        tags: ['Face & Neck Tightening'],
       });
       const contactId = contactRes.contact?.id || contactRes.id;
 
       // 2) Book appointment
-      // selectedTimezone tells GHL which timezone the slot was picked in.
       await ghlFetch('/calendars/events/appointments', {
         calendarId: GHL.calendarId,
         locationId: GHL.locationId,
@@ -295,7 +294,8 @@
         assignedUserId: GHL.userId,
         startTime:      isoInTz(start, BUSINESS_TZ),
         endTime:        isoInTz(end,   BUSINESS_TZ),
-        title:          `${name} — LED Red light Skin Tightening`,
+        title:          `${name} — Face & Neck Tightening`,
+        appointmentStatus: 'confirmed',
         selectedTimezone: BUSINESS_TZ,
       });
 

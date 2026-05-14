@@ -2,7 +2,7 @@
   "use strict";
 
   // ------- Configuration -------
-  const SERVICE_NAME = "Face & Neck Tightening";
+  const SERVICE_NAME = "Face and neck tightening";
   const SERVICE_DURATION_MIN = 60;
 
   // GHL credentials
@@ -281,8 +281,8 @@
         lastName: lastName || '-',
         email,
         phone,
-        source: 'Face & Neck Tightening LP',
-        tags: ['Face & Neck Tightening'],
+        source: 'Face and neck tightening LP',
+        tags: ['Face and neck tightening'],
       });
       const contactId = contactRes.contact?.id || contactRes.id;
 
@@ -294,7 +294,7 @@
         assignedUserId: GHL.userId,
         startTime:      isoInTz(start, BUSINESS_TZ),
         endTime:        isoInTz(end,   BUSINESS_TZ),
-        title:          `${name} — Face & Neck Tightening`,
+        title:          `${name} — Face and neck tightening`,
         appointmentStatus: 'confirmed',
         selectedTimezone: BUSINESS_TZ,
       });
